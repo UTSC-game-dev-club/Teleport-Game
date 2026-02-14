@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://deb1waio3a6t6"]
 
-[ext_resource type="Script" uid="uid://dhd1or6vpm3s4" path="res://scripts/player.gd" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://bgdnfbiq07cec" path="res://scripts/teleport_area.gd" id="2_g2els"]
-[ext_resource type="Script" uid="uid://bdx4kaw77j5l1" path="res://scripts/gravity_component.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://dhd1or6vpm3s4" path="res://entites/player/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bgdnfbiq07cec" path="res://entites/player/teleport_area.gd" id="2_g2els"]
+[ext_resource type="Script" uid="uid://bdx4kaw77j5l1" path="res://entites/gravity_component.gd" id="3_qhqgy"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_u8vuu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
-size = Vector2(8, 18)
+size = Vector2(8, 8)
 
 [node name="player" type="CharacterBody2D" unique_id=1601195654 node_paths=PackedStringArray("gravity_component", "teleport_area")]
 script = ExtResource("1_3vyb7")
@@ -16,7 +16,8 @@ teleport_area = NodePath("teleport_area")
 metadata/_custom_type_script = "uid://dhd1or6vpm3s4"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2035259800]
-scale = Vector2(7.9999995, 18)
+position = Vector2(0, -2.3841858e-07)
+scale = Vector2(7.9999995, 7.9999995)
 texture = SubResource("CanvasTexture_u8vuu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=691274263]

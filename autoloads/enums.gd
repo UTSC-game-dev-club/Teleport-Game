@@ -2,7 +2,7 @@ extends Node
 
 enum BulletBehaviours { 
 	STRAIGHT = 0, # SPEED + DIRECTION 
-	TRACKING = 1, # SPEED + TRACKING_TIME
+	HOMING = 1, # SPEED + HOMING_TIME
 	SINE = 2, # SPEED + AMPLITUDE
 }
 
@@ -11,7 +11,7 @@ enum BulletConfigOptions {
 	SPEED = 1,
 	DIRECTION = 2,
 	
-	TRACKING_TIME = 101,
+	HOMING_TIME = 101,
 	
 	AMPLITUDE = 201,
 }
