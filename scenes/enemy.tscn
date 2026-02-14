@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://q5h1loyvxeos"]
+
+[ext_resource type="Script" uid="uid://damjg365e2vhd" path="res://scripts/enemy/enemy.gd" id="1_md0e3"]
+[ext_resource type="Script" uid="uid://bdx4kaw77j5l1" path="res://scripts/gravity_component.gd" id="2_md0e3"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8tegq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
+size = Vector2(1, 1)
+
+[node name="enemy" type="CharacterBody2D" unique_id=990134690 node_paths=PackedStringArray("gravity_component")]
+script = ExtResource("1_md0e3")
+gravity_component = NodePath("GravityComponent")
+metadata/_custom_type_script = "uid://damjg365e2vhd"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1552850073]
+modulate = Color(1, 0, 0.105882354, 1)
+scale = Vector2(7.9999995, 18)
+texture = SubResource("CanvasTexture_8tegq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=570430724]
+position = Vector2(9.536743e-07, 0)
+scale = Vector2(7.9999995, 18)
+shape = SubResource("RectangleShape2D_7p1mj")
+
+[node name="GravityComponent" type="Node" parent="." unique_id=1038485629]
+script = ExtResource("2_md0e3")
+metadata/_custom_type_script = "uid://bdx4kaw77j5l1"

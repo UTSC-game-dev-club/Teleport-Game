@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://deb1waio3a6t6"]
+
+[ext_resource type="Script" uid="uid://dhd1or6vpm3s4" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bgdnfbiq07cec" path="res://scripts/teleport_area.gd" id="2_g2els"]
+[ext_resource type="Script" uid="uid://bdx4kaw77j5l1" path="res://scripts/gravity_component.gd" id="3_qhqgy"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_u8vuu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
+size = Vector2(8, 18)
+
+[node name="player" type="CharacterBody2D" unique_id=1601195654 node_paths=PackedStringArray("gravity_component", "teleport_area")]
+script = ExtResource("1_3vyb7")
+gravity_component = NodePath("GravityComponent")
+teleport_area = NodePath("teleport_area")
+metadata/_custom_type_script = "uid://dhd1or6vpm3s4"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2035259800]
+scale = Vector2(7.9999995, 18)
+texture = SubResource("CanvasTexture_u8vuu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=691274263]
+shape = SubResource("RectangleShape2D_3vyb7")
+
+[node name="teleport_area" type="Area2D" parent="." unique_id=1827655241]
+script = ExtResource("2_g2els")
+metadata/_custom_type_script = "uid://bgdnfbiq07cec"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="teleport_area" unique_id=1430289917]
+polygon = PackedVector2Array(0, 0, 128, 64, 128, -64)
+
+[node name="GravityComponent" type="Node" parent="." unique_id=981393149]
+script = ExtResource("3_qhqgy")
+metadata/_custom_type_script = "uid://bdx4kaw77j5l1"

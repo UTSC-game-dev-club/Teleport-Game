@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ddj8bacih8jlw"]
+
+[ext_resource type="Script" uid="uid://5uf8vrl0p517" path="res://scripts/enemy/bullet.gd" id="1_mkf8s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y25gk"]
+size = Vector2(4, 4)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mkf8s"]
+
+[node name="Bullet" type="Area2D" unique_id=1738066214]
+script = ExtResource("1_mkf8s")
+metadata/_custom_type_script = "uid://5uf8vrl0p517"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=561428023]
+shape = SubResource("RectangleShape2D_y25gk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=98975530]
+scale = Vector2(3.9999998, 3.9999979)
+texture = SubResource("CanvasTexture_mkf8s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

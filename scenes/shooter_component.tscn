@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://61my7u78l8vn"]
+
+[ext_resource type="Script" uid="uid://dtbyrp1l82u73" path="res://scripts/enemy/shooter_component.gd" id="1_q36se"]
+
+[node name="ShooterComponent" type="Node" unique_id=2026695115 node_paths=PackedStringArray("timer")]
+script = ExtResource("1_q36se")
+timer = NodePath("Timer")
+metadata/_custom_type_script = "uid://dtbyrp1l82u73"
+
+[node name="Timer" type="Timer" parent="." unique_id=2094250459]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
