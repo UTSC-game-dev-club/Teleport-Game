@@ -21,7 +21,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Constants="*res://scripts/autoloads/constants.gd"
+Constants="*res://autoloads/constants.gd"
 Enums="*uid://ddlo1r4ufqruv"
 Signals="*uid://bgburd50x011c"
 Cache="*uid://bl50xy5cuxwr6"

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://q5h1loyvxeos"]
 
-[ext_resource type="Script" uid="uid://damjg365e2vhd" path="res://scripts/enemy/enemy.gd" id="1_md0e3"]
-[ext_resource type="Script" uid="uid://bdx4kaw77j5l1" path="res://scripts/gravity_component.gd" id="2_md0e3"]
+[ext_resource type="Script" uid="uid://damjg365e2vhd" path="res://entites/enemy/enemy.gd" id="1_md0e3"]
+[ext_resource type="Script" uid="uid://bdx4kaw77j5l1" path="res://entites/gravity_component.gd" id="2_md0e3"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8tegq"]
 

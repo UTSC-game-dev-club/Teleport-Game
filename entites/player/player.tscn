@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://deb1waio3a6t6"]
 
-[ext_resource type="Script" uid="uid://dhd1or6vpm3s4" path="res://scripts/player.gd" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://bgdnfbiq07cec" path="res://scripts/teleport_area.gd" id="2_g2els"]
-[ext_resource type="Script" uid="uid://bdx4kaw77j5l1" path="res://scripts/gravity_component.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://dhd1or6vpm3s4" path="res://entites/player/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bgdnfbiq07cec" path="res://entites/player/teleport_area.gd" id="2_g2els"]
+[ext_resource type="Script" uid="uid://bdx4kaw77j5l1" path="res://entites/gravity_component.gd" id="3_qhqgy"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_u8vuu"]
 
