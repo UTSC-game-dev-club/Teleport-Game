@@ -11,3 +11,6 @@ func get_player() -> Player:
 		return null
 	
 	return player
+
+func set_player(new_player: Player) -> void:
+	player = new_player

@@ -11,8 +11,8 @@ class_name Player
 @export var JUMP_SPEED: float = 350
 
 
-func _ready() -> void:
-	Cache.player = self
+#func _ready() -> void:
+	#Cache.player = self
 
 func swap(enemy: Enemy) -> void:
 	if enemy != null:

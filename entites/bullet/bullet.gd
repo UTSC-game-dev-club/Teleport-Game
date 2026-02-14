@@ -17,6 +17,20 @@ func setup(bullet_behaviour: BulletBehaviour, new_parent: HittableCharacterBody)
 		
 		action = func(delta) -> void:
 			position += delta * state[&"speed"] * Vector2(cos(state[&"direction"]), sin(state[&"direction"]))
+		
+	if bullet_behaviour is BulletBehaviourSine:
+		position = parent.position
+		state[&"speed"] = bullet_behaviour.speed
+		state[&"amplitude"] = bullet_behaviour.amplitude
+		state[&"direction"] = (Cache.get_player().global_position - global_position).angle()
+		state[&"t"] = 0.0
+		
+		action = func(delta) -> void:
+			position.x += delta * state[&"speed"] * cos(state[&"direction"]) - delta * state[&"amplitude"] * sin(state[&"direction"]) * cos(state[&"t"] * 12.0)
+			position.y += delta * state[&"speed"] * sin(state[&"direction"]) + delta * state[&"amplitude"] * cos(state[&"direction"]) * cos(state[&"t"] * 12.0)
+			state[&"t"] += delta
+		
+
 
 func _physics_process(delta: float) -> void:
 	action.call(delta)
@@ -29,5 +43,5 @@ func _on_body_entered(body: Node2D) -> void:
 		body.get_hit()
 		queue_free()
 	
-	if body is StaticBody2D:
+	if body is TileMapLayer:
 		queue_free()
