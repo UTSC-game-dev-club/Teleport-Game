@@ -2,44 +2,21 @@ extends Area2D
 
 class_name Bullet
 
-var config: Dictionary[Enums.BulletConfigOptions, Variant]
-var action: Callable
 var parent: HittableCharacterBody
+var action: Callable
+var state: Dictionary = {}
 
-var t: float = 0.0
-
-
-func setup(new_config: Dictionary, actor: HittableCharacterBody) -> bool:
+func setup(bullet_behaviour: BulletBehaviour, new_parent: HittableCharacterBody) -> void:
 	
-	add_to_group(Constants.BULLET_STRING + actor.to_string())
-	parent = actor
-	config = new_config
-	
-	if !config.has(Enums.BulletConfigOptions.BEHAVIOUR):
-		return false
-	
-	if config[Enums.BulletConfigOptions.BEHAVIOUR] == Enums.BulletBehaviours.STRAIGHT:
-		if !config.has(Enums.BulletConfigOptions.SPEED):
-			return false
-		if !config.has(Enums.BulletConfigOptions.DIRECTION):
-			return false
+	add_to_group(Constants.BULLET_STRING + new_parent.to_string())
+	parent = new_parent
+	if bullet_behaviour is BulletBehaviourStraight:
+		position = parent.position
+		state[&"speed"] = bullet_behaviour.speed
+		state[&"direction"] = (Cache.get_player().global_position - global_position).angle()
 		
-		action = func(delta: float):
-			position += delta * config[Enums.BulletConfigOptions.SPEED] * Vector2.from_angle(config[Enums.BulletConfigOptions.DIRECTION])
-		return true
-	
-	if config[Enums.BulletConfigOptions.BEHAVIOUR] == Enums.BulletBehaviours.SINE:
-		if !config.has(Enums.BulletConfigOptions.SPEED):
-			return false
-		if !config.has(Enums.BulletConfigOptions.AMPLITUDE):
-			return false
-		
-		action = func(delta: float):
-			position.x += Enums.BulletConfigOptions.SPEED * cos(t) * delta - Enums.BulletConfigOptions.AMPLITUDE * sin(t) * cos(t)
-			position.y += Enums.BulletConfigOptions.SPEED * sin(t) * delta + Enums.BulletConfigOptions.AMPLITUDE * cos(t) * cos(t)
-			t += delta
-	
-	return false
+		action = func(delta) -> void:
+			position += delta * state[&"speed"] * Vector2(cos(state[&"direction"]), sin(state[&"direction"]))
 
 func _physics_process(delta: float) -> void:
 	action.call(delta)
